@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | SUNTECH POWER</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/icons/suntech-favicon.png">
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">SUNTECH POWER</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="page-hero">
+            <h1>About SUNTECH POWER</h1>
+            <p>Empowering Kenya with clean energy and smart technology solutions.</p>
+        </section>
+        <section class="about-company">
+            <div id="aboutDynamic"></div>
+            <div class="about-grid">
+                <div class="about-block">
+                    <h2>Our Mission</h2>
+                    <p>To make clean, reliable energy and technology accessible and affordable for every Kenyan home and business.</p>
+                </div>
+                <div class="about-block">
+                    <h2>Our Values</h2>
+                    <ul>
+                        <li>Integrity & Trust</li>
+                        <li>Innovation</li>
+                        <li>Customer Focus</li>
+                        <li>Excellence</li>
+                        <li>Sustainability</li>
+                    </ul>
+                </div>
+                <div class="about-block">
+                    <h2>Our Experience</h2>
+                    <p>With over 10 years in the industry, SUNTECH POWER has delivered 500+ successful installations across Kenya, serving homes, schools, businesses, and institutions.</p>
+                </div>
+            </div>
+        </section>
+        <section class="about-team">
+            <h2>Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="assets/images/team1.jpg" alt="Team Member 1">
+                    <h3>BORNPIVON ABAYA</h3>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-card">
+                    <img src="assets/images/team2.jpg" alt="Team Member 2">
+                    <h3>David Otieno</h3>
+                    <p>Technical Director</p>
+                </div>
+                <div class="team-card">
+                    <img src="assets/images/team3.jpg" alt="Team Member 3">
+                    <h3>Faith Wambui</h3>
+                    <p>Lead Engineer</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <a href="https://wa.me/254740942700" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <img src="assets/icons/whatsapp.svg" alt="WhatsApp">
+    </a>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 SUNTECH POWER. All rights reserved.</p>
+            <p>Contact: <a href="mailto:suntechpowerke@gmail.com">suntechpowerke@gmail.com</a> | WhatsApp: 0740942700</p>
+        </div>
+    </footer>
+    <script>
+// Dynamically load About content
+fetch('/api/about').then(r=>r.json()).then(data=>{
+  if(data && data.content) {
+    document.getElementById('aboutDynamic').innerHTML = `<div class='about-block'><h2>About Us</h2><p>${data.content}</p></div>`;
+  }
+});
+</script>
+</body>
+</html>

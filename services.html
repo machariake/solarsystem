@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | SUNTECH POWER</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/icons/suntech-favicon.png">
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">SUNTECH POWER</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="page-hero">
+            <h1>Our Services</h1>
+            <p>Expert installation and support for solar, battery, inverter, CCTV, and WiFi solutions across Kenya.</p>
+        </section>
+        <section class="services-list" id="servicesDynamic">
+            <div class="service-card">
+                <img src="assets/icons/solar-panel.svg" alt="Solar Installation">
+                <div>
+                    <h2>Solar Panel Sales & Installation</h2>
+                    <p>Design, supply, and installation of high-efficiency solar panels for homes, schools, and businesses. We handle everything from site survey to commissioning.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="assets/icons/battery.svg" alt="Lithium Battery Systems">
+                <div>
+                    <h2>Lithium Battery Systems</h2>
+                    <p>Reliable, long-life lithium battery storage for backup and off-grid power. We size and install batteries for all needs.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="assets/icons/inverter.svg" alt="Inverters & Solar Kits">
+                <div>
+                    <h2>Inverters & Solar Kits</h2>
+                    <p>Smart inverters and complete solar kits for seamless power conversion and management. We offer hybrid, off-grid, and grid-tied solutions.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="assets/icons/cctv.svg" alt="CCTV Camera Systems">
+                <div>
+                    <h2>CCTV Camera Systems</h2>
+                    <p>Professional CCTV installation for homes, businesses, and institutions. Remote monitoring, night vision, and scalable security options.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="assets/icons/wifi.svg" alt="WiFi Routers & Installation">
+                <div>
+                    <h2>WiFi Routers & Installation</h2>
+                    <p>Fast, reliable WiFi solutions for homes, offices, and public spaces. We supply and install routers, mesh systems, and long-range WiFi.</p>
+                </div>
+            </div>
+        </section>
+        <section class="coverage">
+            <h2>Nationwide Installation Coverage</h2>
+            <p>We serve all counties in Kenya with a network of expert technicians. No matter your location, SUNTECH POWER delivers!</p>
+        </section>
+        <section class="book-tech">
+            <a href="contact.html" class="cta-btn">Book a Technician</a>
+        </section>
+    </main>
+    <a href="https://wa.me/254740942700" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <img src="assets/icons/whatsapp.svg" alt="WhatsApp">
+    </a>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 SUNTECH POWER. All rights reserved.</p>
+            <p>Contact: <a href="mailto:suntechpowerke@gmail.com">suntechpowerke@gmail.com</a> | WhatsApp: 0740942700</p>
+        </div>
+    </footer>
+    <script>
+fetch('/api/services').then(r=>r.json()).then(arr=>{
+  if(Array.isArray(arr)) {
+    document.getElementById('servicesDynamic').innerHTML = arr.map(s => `
+      <div class='service-card' style='display:flex;align-items:flex-start;margin-bottom:1.5rem;'>
+        <div style='flex:1;'>
+          <h2>${s.name||"Unnamed Service"}</h2>
+          <p>${s.desc||""}</p>
+        </div>
+      </div>
+    `).join('');
+  }
+});
+</script>
+</body>
+</html>

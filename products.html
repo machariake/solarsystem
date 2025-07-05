@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | SUNTECH POWER</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/icons/suntech-favicon.png">
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">SUNTECH POWER</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="page-hero">
+            <h1>Our Products</h1>
+            <p>Top-quality solar, battery, inverter, CCTV, and WiFi solutions for every need.</p>
+        </section>
+        <section class="products-list">
+            <div id="productsDynamic"></div>
+        </section>
+    </main>
+    <a href="https://wa.me/254740942700" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <img src="assets/icons/whatsapp.svg" alt="WhatsApp">
+    </a>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 SUNTECH POWER. All rights reserved.</p>
+            <p>Contact: <a href="mailto:suntechpowerke@gmail.com">suntechpowerke@gmail.com</a> | WhatsApp: 0740942700</p>
+        </div>
+    </footer>
+    <script>
+// Dynamically load Products content
+fetch('/api/products').then(r=>r.json()).then(arr=>{
+  if(Array.isArray(arr)) {
+    document.getElementById('productsDynamic').innerHTML = arr.map(p => `
+      <div class='product-card' style='display:inline-block;vertical-align:top;margin:1rem;'>
+        <img src='${p.image||"assets/images/noimg.png"}' alt='${p.name||"Product"}' style='max-width:180px;max-height:120px;border-radius:0.7rem;background:#fff;border:1px solid #eee;'>
+        <h3>${p.name||"Unnamed Product"}</h3>
+        <p>${p.desc||""}</p>
+        <a href='contact.html' class='inquiry-btn'>Inquire</a>
+      </div>
+    `).join('');
+  }
+});
+</script>
+</body>
+</html>

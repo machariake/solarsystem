@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | SUNTECH POWER</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/icons/suntech-favicon.png">
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">SUNTECH POWER</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="page-hero">
+            <h1>Contact Us</h1>
+            <p>We’re here to help! Reach out for quotes, support, or partnership inquiries.</p>
+        </section>
+        <section class="contact-section">
+            <div class="contact-grid">
+                <div class="contact-block" id="contactDetailsBlock">
+                    <h2>Contact Details</h2>
+                    <div id="contactDynamic"></div>
+                </div>
+                <div class="contact-block">
+                    <h2>Contact Form</h2>
+                    <form id="contactForm">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                        <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="map-section">
+            <h2>Find Us</h2>
+            <div class="map-embed">
+                <iframe src="https://www.google.com/maps?q=Nairobi,Kenya&output=embed" width="100%" height="300" style="border:0; border-radius:1rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+    </main>
+    <a href="https://wa.me/254740942700" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <img src="assets/icons/whatsapp.svg" alt="WhatsApp">
+    </a>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 SUNTECH POWER. All rights reserved.</p>
+            <p>Contact: <a href="mailto:suntechpowerke@gmail.com">suntechpowerke@gmail.com</a> | WhatsApp: 0740942700</p>
+        </div>
+    </footer>
+    <script>
+    // Contact form handler: send to backend
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (res.ok) {
+          alert('Thank you for contacting SUNTECH POWER! We will get back to you soon.');
+          this.reset();
+        } else {
+          alert('Failed to send message. Please try again later.');
+        }
+      });
+    }
+    // Dynamically load Contact content
+    fetch('/api/contact').then(r=>r.json()).then(data=>{
+      if(data) {
+        document.getElementById('contactDynamic').innerHTML = `
+          <p><strong>WhatsApp:</strong> <a href='https://wa.me/${data.phone.replace(/\D/g,'')}' target='_blank'>${data.phone}</a></p>
+          <p><strong>Email:</strong> <a href='mailto:${data.email}'>${data.email}</a></p>
+          <p><strong>Address:</strong> ${data.address}</p>
+          <p><strong>Business Hours:</strong> 24/7</p>
+        `;
+      }
+    });
+    </script>
+</body>
+</html>

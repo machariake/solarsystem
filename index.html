@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUNTECH POWER | Powering Kenya with Clean, Smart Tech</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/icons/suntech-favicon.png">
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">SUNTECH POWER</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Powering Kenya with Clean, Smart Tech</h1>
+                <p>Affordable, reliable solar & tech solutions for homes and businesses.</p>
+                <a href="contact.html" class="cta-btn">Get a Free Quote</a>
+            </div>
+            <img src="assets/images/hero-solar.jpg" alt="Solar panels in Kenya" class="hero-img">
+        </section>
+        <!-- Product Categories Grid -->
+        <section class="product-categories">
+            <h2>Our Core Solutions</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="assets/icons/solar-panel.svg" alt="Solar Panels">
+                    <span>Solar Panels</span>
+                </div>
+                <div class="category-card">
+                    <img src="assets/icons/battery.svg" alt="Lithium Batteries">
+                    <span>Lithium Batteries</span>
+                </div>
+                <div class="category-card">
+                    <img src="assets/icons/inverter.svg" alt="Inverters & Kits">
+                    <span>Inverters & Kits</span>
+                </div>
+                <div class="category-card">
+                    <img src="assets/icons/cctv.svg" alt="CCTV Systems">
+                    <span>CCTV Systems</span>
+                </div>
+                <div class="category-card">
+                    <img src="assets/icons/wifi.svg" alt="WiFi Routers">
+                    <span>WiFi Routers</span>
+                </div>
+            </div>
+        </section>
+        <!-- Why Choose Us -->
+        <section class="why-choose">
+            <h2>Why Choose SUNTECH POWER?</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <img src="assets/icons/affordable.svg" alt="Affordable">
+                    <h3>Affordable</h3>
+                    <p>Competitive pricing for all budgets.</p>
+                </div>
+                <div class="why-card">
+                    <img src="assets/icons/reliable.svg" alt="Reliable">
+                    <h3>Reliable</h3>
+                    <p>Trusted by hundreds of Kenyan homes & businesses.</p>
+                </div>
+                <div class="why-card">
+                    <img src="assets/icons/expert.svg" alt="Expert Technicians">
+                    <h3>Expert Technicians</h3>
+                    <p>Certified, experienced installation teams.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Projects Done -->
+        <section class="projects-done">
+            <h2>Projects Done</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="assets/images/project1.jpg" alt="Solar for School in Ruiru">
+                    <p>Solar for School in Ruiru</p>
+                </div>
+                <div class="project-card">
+                    <img src="assets/images/project2.jpg" alt="CCTV for Business in Nairobi">
+                    <p>CCTV for Business in Nairobi</p>
+                </div>
+                <div class="project-card">
+                    <img src="assets/images/project3.jpg" alt="WiFi Installation in Kisumu">
+                    <p>WiFi Installation in Kisumu</p>
+                </div>
+            </div>
+        </section>
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <p>“SUNTECH POWER installed our solar system quickly and professionally. Highly recommend!”</p>
+                    <span>- Mary, Nairobi</span>
+                </div>
+                <div class="testimonial">
+                    <p>“Reliable WiFi and CCTV for my business. Great service!”</p>
+                    <span>- James, Mombasa</span>
+                </div>
+                <div class="testimonial">
+                    <p>“Affordable and friendly team. Our home is now energy independent.”</p>
+                    <span>- Amina, Nakuru</span>
+                </div>
+            </div>
+        </section>
+        <!-- Completed Projects (User Uploads) -->
+        <section class="completed-projects">
+            <h2>Completed Projects</h2>
+            <div class="completed-grid" id="completedGridJS">
+                <!-- Images will be loaded automatically by JavaScript -->
+            </div>
+            <p style="text-align:center; color:#888; font-size:0.95rem;">To update, add images to <code>assets/images/completed/</code> and refresh the page.</p>
+        </section>
+        <!-- WhatsApp Button & Mini Quote Form -->
+        <a href="https://wa.me/254740942700" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+            <img src="assets/icons/whatsapp.svg" alt="WhatsApp">
+        </a>
+        <section class="mini-quote-form">
+            <h2>Get a Quick Quote</h2>
+            <form id="quoteForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <select name="service" required>
+                    <option value="">Select Service</option>
+                    <option value="solar">Solar Installation</option>
+                    <option value="battery">Lithium Battery System</option>
+                    <option value="inverter">Inverter/Solar Kit</option>
+                    <option value="cctv">CCTV System</option>
+                    <option value="wifi">WiFi Installation</option>
+                </select>
+                <button type="submit">Request Quote</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 SUNTECH POWER. All rights reserved.</p>
+            <p>Contact: <a href="mailto:suntechpowerke@gmail.com">suntechpowerke@gmail.com</a> | WhatsApp: 0740942700</p>
+        </div>
+    </footer>
+    <script>
+        // Fetch images dynamically from Node.js backend (with description support)
+        fetch('/api/completed-projects')
+          .then(res => res.json())
+          .then(images => {
+            const grid = document.getElementById('completedGridJS');
+            if (grid && Array.isArray(images)) {
+              images.forEach(img => {
+                const card = document.createElement('div');
+                card.className = 'completed-card';
+                card.innerHTML = `<img src="${img.src}" alt="${img.title}"><p><strong>${img.title}</strong></p>${img.desc ? `<p style='font-size:0.97em;color:#444;'>${img.desc}</p>` : ''}`;
+                grid.appendChild(card);
+              });
+            }
+          });
+    </script>
+</body>
+</html>
